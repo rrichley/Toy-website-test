@@ -38,11 +38,42 @@ var environmentConfigurationMap = {
     appServicePlan: {
       sku: {
         name: 'F1'
+        capacity: 1
       }
     }
     storageAccount: {
       sku: {
         name: 'Standard_GRS'
+      }
+    }
+  }
+}
+
+// Adjust the SKUs or add fallback SKUs in case of quota issues
+var fallbackConfigurationMap = {
+  Production: {
+    appServicePlan: {
+      sku: {
+        name: 'P1v2'
+        capacity: 1
+      }
+    }
+    storageAccount: {
+      sku: {
+        name: 'Standard_ZRS'
+      }
+    }
+  }
+  Test: {
+    appServicePlan: {
+      sku: {
+        name: 'B1'
+        capacity: 1
+      }
+    }
+    storageAccount: {
+      sku: {
+        name: 'Standard_LRS'
       }
     }
   }
